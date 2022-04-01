@@ -25,7 +25,7 @@ const Navbar = () => (
       <Menu>
         <MenuButton
           as={IconButton}
-          ico={<FcMenu />}
+          icon={<FcMenu />}
           variant="outlined"
           color="red.400"
         />
