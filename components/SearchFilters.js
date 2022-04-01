@@ -12,8 +12,28 @@ import {
 import { useRouter } from "next/router";
 import { mdCancel } from "react-icons/md";
 import Image from "next/image";
+import { filterData, getFilterValues } from "../utils/filterData";
 const SearchFilters = () => {
-  return <>search filters</>;
+  const [filters, setFilters] = useState(filterData);
+  const searchProperties = (filterValues) => {};
+  return (
+    <Flex bg="gray.100" p="4" justifyContent="center" flexWrap="wrap">
+      {filters.map((filter) => (
+        <Box key={filter.queryName}>
+          <Select
+            border="1px"
+            borderColor="blackAlpha.400"
+            placeholder={filter.placeholder}
+            w="fit-content"
+            p="2"
+            onChange={(e) =>
+              searchProperties({ [filter.queryName]: e.target.value })
+            }
+          ></Select>
+        </Box>
+      ))}
+    </Flex>
+  );
 };
 
 export default SearchFilters;
